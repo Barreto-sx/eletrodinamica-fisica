@@ -170,6 +170,8 @@ b  { font-weight: 600; color: var(--texto); }
 }
 
 .cartao {
+  display: flex;
+  flex-direction: column;      /* deixa o "detalhe" sempre encostado no fim do cartão */
   background: var(--branco);
   border: 1px solid var(--borda);
   border-radius: 8px;
@@ -183,7 +185,7 @@ b  { font-weight: 600; color: var(--texto); }
 
 /* "Detalhe" no fim do cartão: um bloco separado, com fundo suave */
 .nota {
-  margin: 14px 0 0;
+  margin: auto 0 0;
   padding: 12px 14px;
   background: var(--fundo);
   border-left: 3px solid var(--azul);
