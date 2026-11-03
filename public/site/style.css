@@ -276,20 +276,23 @@ b  { font-weight: 600; color: var(--texto); }
 .fracao .cima  { padding: 0 7px 3px; border-bottom: 1.5px solid currentColor; }
 .fracao .baixo { padding: 3px 7px 0; }
 
-/* raiz quadrada: o sinal √ e o traço por cima do que está dentro */
-.raiz { display: inline-flex; align-items: flex-start; }
+/* raiz quadrada: o sinal SVG embaixo e o traço por cima do que está dentro */
+.raiz {
+  display: inline-flex;
+  align-items: flex-start;
+  vertical-align: middle;
+  margin: 0 2px;
+}
 
-.raiz::before {
-  content: "\221A";            /* o sinal de raiz */
-  font-size: 1.35em;
-  line-height: 1;
-  margin-right: 1px;
+.raiz .sinal {
+  width: 0.62em;
+  height: 1.55em;
+  flex: none;
 }
 
 .raiz .dentro {
   border-top: 1.5px solid currentColor;
-  padding: 3px 4px 0;
-  margin-top: 0.3em;
+  padding: 3px 5px 0 1px;
 }
 
 /* setinha de vetor por cima da letra */
