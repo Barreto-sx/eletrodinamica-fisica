@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eletrodinâmica e Eletromagnetismo</title>
+  <meta name="description" content="História, aplicações, fórmulas e cientistas da eletrodinâmica e do eletromagnetismo.">
+  <!-- Arquivo de estilos (cores, fontes, layout) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===================== MENU DE NAVEGAÇÃO ===================== -->
+  <header class="menu">
+    <span class="logo">⚡ Eletro</span>
+    <!-- Botão que aparece só no celular para abrir o menu -->
+    <button id="botao-menu" class="botao-menu">☰</button>
+    <nav id="links-menu" class="links-menu">
+      <a href="#historia">História</a>
+      <a href="#aplicacoes">Aplicações</a>
+      <a href="#formulas">Fórmulas</a>
+      <a href="#cientistas">Cientistas</a>
+    </nav>
+  </header>
+
+  <!-- ===================== CAPA ===================== -->
+  <section class="capa">
+    <h1>Eletrodinâmica &amp; Eletromagnetismo</h1>
+    <p>
+      A unificação do estudo das cargas elétricas em movimento com a interação entre
+      campos elétricos e magnéticos é uma das maiores conquistas da física moderna —
+      a base de toda a tecnologia elétrica atual.
+    </p>
+  </section>
+
+  <!-- ===================== 1. HISTÓRIA ===================== -->
+  <section id="historia" class="secao">
+    <h2>1. História</h2>
+    <p>
+      Durante séculos, eletricidade e magnetismo foram vistos como fenômenos distintos.
+      A eletrodinâmica nasceu quando a ciência aprendeu a controlar o fluxo de cargas, e o
+      eletromagnetismo surgiu ao descobrir que eletricidade em movimento gera magnetismo — e vice-versa.
+    </p>
+
+    <!-- Linha do tempo: cada <div class="evento"> é um acontecimento -->
+    <div class="linha-do-tempo">
+      <div class="evento">
+        <span class="ano">1785</span>
+        <h3>Quantificação da Força Elétrica</h3>
+        <p>Coulomb usa a balança de torção para formular a Lei de Coulomb, base da força eletrostática entre cargas pontuais.</p>
+      </div>
+      <div class="evento">
+        <span class="ano">1800</span>
+        <h3>A Invenção da Pilha Voltaica</h3>
+        <p>Alessandro Volta cria a primeira bateria química: pela primeira vez há uma fonte contínua de corrente elétrica.</p>
+      </div>
+      <div class="evento">
+        <span class="ano">1820</span>
+        <h3>O Experimento de Oersted</h3>
+        <p>Oersted percebe que a corrente em um fio desvia uma bússola: cargas em movimento criam campos magnéticos.</p>
+      </div>
+      <div class="evento">
+        <span class="ano">1820 – 1826</span>
+        <h3>A Matemática da Eletrodinâmica</h3>
+        <p>Ampère desenvolve formulações rigorosas para a força entre fios com corrente e estabelece as leis fundamentais do eletromagnetismo.</p>
+      </div>
+      <div class="evento">
+        <span class="ano">1831</span>
+        <h3>Indução Eletromagnética</h3>
+        <p>Faraday descobre que a variação de um campo magnético induz corrente elétrica em um circuito fechado.</p>
+      </div>
+      <div class="evento">
+        <span class="ano">1864 – 1873</span>
+        <h3>A Teoria Unificada de Maxwell</h3>
+        <p>Maxwell sintetiza tudo em quatro equações e demonstra que a luz é uma onda eletromagnética.</p>
+      </div>
+      <div class="evento">
+        <span class="ano">1887</span>
+        <h3>Comprovação das Ondas Eletromagnéticas</h3>
+        <p>Hertz constrói o primeiro transmissor e receptor de ondas de rádio, confirmando as previsões de Maxwell.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. APLICAÇÕES ===================== -->
+  <section id="aplicacoes" class="secao">
+    <h2>2. Feitos e o Mundo Atual</h2>
+    <p>Cada descoberta histórica tem uma correspondência direta em dispositivos do cotidiano:</p>
+
+    <!-- Envolvemos a tabela numa div para permitir rolagem lateral no celular -->
+    <div class="tabela-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Descoberta / Princípio</th>
+            <th>Aplicação Atual</th>
+            <th>Impacto na Sociedade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Indução Eletromagnética (Faraday)</td><td>Usinas hidrelétricas, eólicas e geradores</td><td>Produção massiva de energia para indústrias e residências.</td></tr>
+          <tr><td>Corrente Alternada e Transformadores (Tesla / Stanley)</td><td>Subestações e redes de alta tensão</td><td>Transporte eficiente de eletricidade por milhares de quilômetros.</td></tr>
+          <tr><td>Ondas Eletromagnéticas (Maxwell / Hertz)</td><td>Wi-Fi, 4G/5G, Bluetooth e satélites</td><td>Conectividade global, GPS e dados sem fio.</td></tr>
+          <tr><td>Força de Lorentz / Torque Magnético</td><td>Motores de carros elétricos e trens Maglev</td><td>Mobilidade sustentável e automação eficiente.</td></tr>
+          <tr><td>Dinâmica de Cargas em Semicondutores</td><td>Transistores, microprocessadores e GPUs (IA)</td><td>Computação moderna, smartphones, nuvem e IA.</td></tr>
+          <tr><td>Ressonância Magnética e Ondas de Rádio</td><td>Exames de Ressonância Magnética (RM)</td><td>Diagnóstico médico não invasivo de alta precisão.</td></tr>
+          <tr><td>Carregamento por Indução</td><td>Carregadores sem fio (Qi)</td><td>Energia por acoplamento magnético, sem fios expostos.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== 3. FÓRMULAS ===================== -->
+  <section id="formulas" class="secao">
+    <h2>3. Fórmulas Fundamentais</h2>
+    <p>Clique em uma fórmula para ver o significado de cada símbolo.</p>
+
+    <h3 class="subtitulo">A. Eletrodinâmica Clássica</h3>
+    <!-- Cada .formula é um "cartão" que abre/fecha com JavaScript -->
+    <div class="formula">
+      <div class="formula-topo"><span>Lei de Coulomb</span><code>F = k · |q₁ · q₂| / r²</code></div>
+      <div class="formula-detalhes">
+        <p><b>F</b>: força elétrica (N) · <b>q₁, q₂</b>: cargas (C) · <b>r</b>: distância (m)</p>
+      </div>
+    </div>
+    <div class="formula">
+      <div class="formula-topo"><span>1ª Lei de Ohm</span><code>V = R · I</code></div>
+      <div class="formula-detalhes">
+        <p><b>V</b>: tensão (V) · <b>I</b>: corrente (A) · <b>R</b>: resistência (Ω)</p>
+      </div>
+    </div>
+    <div class="formula">
+      <div class="formula-topo"><span>Efeito Joule</span><code>P = R · I²</code></div>
+      <div class="formula-detalhes">
+        <p><b>P</b>: potência transformada em calor (W)</p>
+      </div>
+    </div>
+    <div class="formula">
+      <div class="formula-topo"><span>Força de Lorentz</span><code>F⃗ = q (E⃗ + v⃗ × B⃗)</code></div>
+      <div class="formula-detalhes">
+        <p><b>E⃗</b>: campo elétrico · <b>B⃗</b>: campo magnético · <b>v⃗</b>: velocidade da carga q</p>
+      </div>
+    </div>
+
+    <h3 class="subtitulo">B. As 4 Equações de Maxwell</h3>
+    <div class="formula">
+      <div class="formula-topo"><span>Gauss (Eletricidade)</span><code>∮ E⃗ · dA⃗ = Q / ε₀</code></div>
+      <div class="formula-detalhes"><p>Cargas elétricas são as fontes diretas dos campos elétricos.</p></div>
+    </div>
+    <div class="formula">
+      <div class="formula-topo"><span>Gauss (Magnetismo)</span><code>∮ B⃗ · dA⃗ = 0</code></div>
+      <div class="formula-detalhes"><p>As linhas de campo magnético são sempre fechadas: não existem monopolos magnéticos.</p></div>
+    </div>
+    <div class="formula">
+      <div class="formula-topo"><span>Indução de Faraday</span><code>ℰ = − dΦ<sub>B</sub> / dt</code></div>
+      <div class="formula-detalhes"><p>A variação do fluxo magnético (Φ<sub>B</sub>) induz uma força eletromotriz (ℰ) e um campo elétrico.</p></div>
+    </div>
+    <div class="formula">
+      <div class="formula-topo"><span>Ampère-Maxwell</span><code>∮ B⃗ · dl⃗ = μ₀ I + μ₀ε₀ dΦ<sub>E</sub>/dt</code></div>
+      <div class="formula-detalhes"><p>Campos magnéticos são gerados por correntes reais (I) ou por campos elétricos variáveis (dΦ<sub>E</sub>/dt).</p></div>
+    </div>
+
+    <h3 class="subtitulo">C. Ondas Eletromagnéticas</h3>
+    <div class="formula">
+      <div class="formula-topo"><span>Velocidade da Luz</span><code>c = 1 / √(μ₀ ε₀)</code></div>
+      <div class="formula-detalhes">
+        <p><b>ε₀</b> ≈ 8,85 × 10⁻¹² F/m · <b>μ₀</b> = 4π × 10⁻⁷ T·m/A</p>
+      </div>
+    </div>
+    <div class="formula">
+      <div class="formula-topo"><span>Equação da Onda</span><code>v = λ · f</code></div>
+      <div class="formula-detalhes"><p><b>λ</b>: comprimento de onda (m) · <b>f</b>: frequência (Hz)</p></div>
+    </div>
+
+    <!-- Calculadora simples da Lei de Ohm (usa JavaScript) -->
+    <div class="calculadora">
+      <h3>🔌 Calculadora da Lei de Ohm</h3>
+      <label>Resistência R (Ω) <input type="number" id="resistencia" value="10"></label>
+      <label>Corrente I (A) <input type="number" id="corrente" value="2"></label>
+      <button id="botao-calcular">Calcular</button>
+      <p id="resultado"></p>
+    </div>
+  </section>
+
+  <!-- ===================== 4. CIENTISTAS ===================== -->
+  <section id="cientistas" class="secao">
+    <h2>4. Principais Cientistas</h2>
+    <!-- Os cartões são criados pelo JavaScript a partir de uma lista (script.js) -->
+    <div id="lista-cientistas" class="grade-cientistas"></div>
+  </section>
+
+  <footer class="rodape">
+    Trabalho sobre Eletrodinâmica e Eletromagnetismo
+  </footer>
+
+  <!-- Arquivo de JavaScript (interatividade) -->
+  <script src="script.js"></script>
+</body>
+</html>
