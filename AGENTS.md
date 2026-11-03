@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep the site itself plain HTML/CSS/JS in `public/site/`, with Portuguese comments and no external libraries: the owner reads and edits this code to learn, and the math is drawn with HTML/CSS on purpose.
