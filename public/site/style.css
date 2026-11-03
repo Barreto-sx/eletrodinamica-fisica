@@ -1,0 +1,325 @@
+/* =========================================================
+   VARIÁVEIS DE COR — mude aqui para trocar o tema do site
+   ========================================================= */
+:root {
+  --fundo: #0b1020;        /* azul bem escuro */
+  --cartao: #151c33;       /* fundo dos cartões */
+  --texto: #e6e9f2;        /* texto principal */
+  --texto-suave: #9aa3bd;  /* texto secundário */
+  --destaque: #ffc83d;     /* amarelo "elétrico" */
+  --destaque-2: #3dd6ff;   /* azul "magnético" */
+}
+
+/* ===================== BASE ===================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* rolagem suave ao clicar no menu */
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: var(--fundo);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+/* ===================== MENU ===================== */
+.menu {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  background: rgba(11, 16, 32, 0.92);
+  border-bottom: 1px solid #222b4a;
+}
+
+.logo {
+  font-weight: bold;
+  color: var(--destaque);
+  font-size: 1.2rem;
+}
+
+.links-menu a {
+  color: var(--texto);
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.links-menu a:hover {
+  color: var(--destaque);
+}
+
+.botao-menu {
+  display: none; /* escondido no computador */
+  background: none;
+  border: none;
+  color: var(--texto);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ===================== CAPA ===================== */
+.capa {
+  text-align: center;
+  padding: 100px 24px;
+  background: radial-gradient(circle at 50% 0%, #1d2a5c, var(--fundo) 70%);
+}
+
+.capa h1 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  background: linear-gradient(90deg, var(--destaque), var(--destaque-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 20px;
+}
+
+.capa p {
+  max-width: 650px;
+  margin: 0 auto;
+  color: var(--texto-suave);
+  font-size: 1.1rem;
+}
+
+/* ===================== SEÇÕES ===================== */
+.secao {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 70px 24px;
+}
+
+.secao h2 {
+  font-size: 2rem;
+  color: var(--destaque);
+  margin-bottom: 16px;
+}
+
+.secao > p {
+  color: var(--texto-suave);
+  margin-bottom: 24px;
+}
+
+.subtitulo {
+  color: var(--destaque-2);
+  margin: 30px 0 12px;
+}
+
+/* Animação: elementos surgem ao rolar (classe adicionada pelo JS) */
+.escondido {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+
+.visivel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===================== LINHA DO TEMPO ===================== */
+.linha-do-tempo {
+  border-left: 3px solid var(--destaque);
+  padding-left: 24px;
+}
+
+.evento {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+/* bolinha na linha */
+.evento::before {
+  content: "";
+  position: absolute;
+  left: -33px;
+  top: 6px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--destaque);
+}
+
+.ano {
+  color: var(--destaque-2);
+  font-weight: bold;
+  font-family: monospace;
+}
+
+.evento p {
+  color: var(--texto-suave);
+}
+
+/* ===================== TABELA ===================== */
+.tabela-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #222b4a;
+}
+
+th {
+  background: var(--cartao);
+  color: var(--destaque);
+}
+
+tr:hover td {
+  background: #121a33;
+}
+
+/* ===================== FÓRMULAS ===================== */
+.formula {
+  background: var(--cartao);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.formula:hover {
+  border-color: var(--destaque-2);
+}
+
+.formula-topo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 18px;
+}
+
+.formula code {
+  color: var(--destaque);
+  font-size: 1.1rem;
+}
+
+.formula-detalhes {
+  display: none; /* fica escondido até clicar */
+  padding: 0 18px 14px;
+  color: var(--texto-suave);
+}
+
+.formula.aberta .formula-detalhes {
+  display: block;
+}
+
+/* ===================== CALCULADORA ===================== */
+.calculadora {
+  margin-top: 30px;
+  padding: 20px;
+  border: 2px dashed var(--destaque);
+  border-radius: 10px;
+}
+
+.calculadora label {
+  display: block;
+  margin: 10px 0;
+}
+
+.calculadora input {
+  margin-left: 8px;
+  padding: 6px;
+  width: 100px;
+  border-radius: 6px;
+  border: none;
+}
+
+.calculadora button {
+  margin-top: 10px;
+  padding: 8px 20px;
+  background: var(--destaque);
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#resultado {
+  margin-top: 12px;
+  font-size: 1.2rem;
+  color: var(--destaque-2);
+}
+
+/* ===================== CIENTISTAS ===================== */
+.grade-cientistas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.cientista {
+  background: var(--cartao);
+  padding: 20px;
+  border-radius: 10px;
+  border-top: 4px solid var(--destaque-2);
+}
+
+.cientista h3 {
+  margin-bottom: 4px;
+}
+
+.cientista .datas {
+  color: var(--destaque);
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+.cientista p {
+  margin-top: 10px;
+  color: var(--texto-suave);
+}
+
+/* ===================== RODAPÉ ===================== */
+.rodape {
+  text-align: center;
+  padding: 30px;
+  color: var(--texto-suave);
+  border-top: 1px solid #222b4a;
+}
+
+/* ===================== CELULAR (telas pequenas) ===================== */
+@media (max-width: 700px) {
+  .botao-menu {
+    display: block;
+  }
+
+  .links-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--fundo);
+    flex-direction: column;
+    padding: 10px 24px;
+  }
+
+  /* quando o JS adiciona a classe "aberto", o menu aparece */
+  .links-menu.aberto {
+    display: flex;
+  }
+
+  .links-menu a {
+    margin: 10px 0;
+  }
+}
