@@ -143,6 +143,38 @@ b  { font-weight: 600; color: var(--texto); }
   color: var(--texto-suave);
 }
 
+/* ===================== A PESQUISA ===================== */
+/* cada parte da pesquisa (o que é, como surgiu...) é um bloco branco */
+.pesquisa { margin-top: 34px; }
+
+.bloco {
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  padding: 20px 24px 22px;
+  margin-bottom: 12px;
+}
+
+.bloco h3 { margin: 6px 0 10px; font-size: 1.15rem; }
+.bloco p  { margin-bottom: 0; font-size: 0.95rem; }
+
+/* os 4 conceitos principais, lado a lado (em coluna no celular) */
+.conceitos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.conceito {
+  background: var(--fundo);
+  border-left: 3px solid var(--azul);
+  border-radius: 0 6px 6px 0;
+  padding: 12px 14px;
+  font-size: 0.85rem;
+}
+
+.conceito b { display: block; margin-bottom: 4px; }
+
 /* ===================== LINHA DO TEMPO (passos) ===================== */
 .passos {
   display: grid;
