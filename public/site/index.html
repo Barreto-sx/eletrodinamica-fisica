@@ -8,17 +8,19 @@
 
   <!-- Fontes do Google: Space Grotesk (títulos) e Inter (texto) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- atalho para quem navega pelo teclado: pula direto para o conteúdo -->
+  <a href="#inicio" class="pular">Pular para o conteúdo</a>
 
   <!-- ===================== CABEÇALHO ===================== -->
   <header class="cabecalho">
-    <a href="#inicio" class="marca">
+    <a href="#inicio" class="marca" aria-label="Física + Eletromagnetismo, IFBA Campus Camaçari — voltar ao início">
       <!-- Logo do IFBA desenhada em SVG (quadrados verdes + círculo vermelho) -->
-      <svg class="logo-ifba" viewBox="0 0 30 40" aria-label="Logo do Instituto Federal da Bahia">
+      <svg class="logo-ifba" viewBox="0 0 30 40" role="img" aria-label="Logo do Instituto Federal da Bahia">
         <circle cx="5" cy="5" r="4" fill="#c8102e"/>
         <rect x="11" y="1" width="8" height="8" rx="1" fill="#2f9e41"/>
         <rect x="21" y="1" width="8" height="8" rx="1" fill="#2f9e41"/>
@@ -36,15 +38,15 @@
       </div>
     </a>
 
-    <button id="botao-menu" class="botao-menu" aria-label="Abrir menu">☰</button>
+    <button id="botao-menu" class="botao-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">☰</button>
 
-    <nav id="menu" class="menu">
+    <nav id="menu" class="menu" aria-label="Seções do site">
       <a href="#inicio">A pesquisa</a>
       <a href="#historia">História</a>
       <a href="#hoje">No dia a dia</a>
       <a href="#formulas">Fórmulas</a>
       <a href="#cientistas">Cientistas</a>
-      <a href="#equipe" class="botao-azul">Sobre o trabalho ↗</a>
+      <a href="#equipe" class="botao-azul">Sobre o trabalho</a>
     </nav>
   </header>
 
@@ -53,9 +55,11 @@
     A pesquisa inteira em um texto só, sem caixas.
     O nome de cada assunto aparece em negrito no começo do parágrafo.
   -->
+  <main>
   <section id="inicio" class="secao">
     <p class="etiqueta">A PESQUISA</p>
     <h1>Eletromagnetismo</h1>
+    <p class="subtitulo-pagina">Trabalho de Física de <b>Bruno Barreto</b> · IFBA Campus Camaçari</p>
 
     <div class="pesquisa">
       <p>
@@ -103,7 +107,7 @@
       <h2>Um século de descobertas</h2>
       <p class="texto-lado">
         Separei os momentos que mais me chamaram atenção. Repare como uma descoberta
-        foi puxando a outra, quase como uma corrente (sem trocadilho 😅).
+        foi puxando a outra, quase como uma corrente (sem trocadilho).
       </p>
 
       <div class="passos">
@@ -285,52 +289,60 @@
       <p class="texto-lado">
         Sei que fórmula assusta um pouco, então escrevi cada uma como a gente escreve no
         caderno: fração com um número em cima e outro embaixo, raiz de verdade e setinha
-        nas grandezas que são vetores. <b>Toque em uma fórmula</b> para ver o que cada letra significa.
+        nas grandezas que são vetores. <b>Toque em uma fórmula</b> (ou use Tab e Enter) para ver o que cada letra significa.
       </p>
 
       <h3 class="subtitulo">Eletrodinâmica (correntes e circuitos)</h3>
 
-      <div class="formula">
-        <div class="formula-topo"><span>Lei de Coulomb</span><span class="mais">+</span></div>
-        <p class="mat formula-corpo">
+      <details class="formula">
+        <summary>
+          <span class="formula-topo"><span>Lei de Coulomb</span><span class="mais" aria-hidden="true">+</span></span>
+          <span class="mat formula-corpo">
           <i>F</i> = <i>k</i> ·
           <span class="fracao">
             <span class="cima"><i>q</i><sub>1</sub> · <i>q</i><sub>2</sub></span>
             <span class="baixo"><i>r</i><sup>2</sup></span>
           </span>
-        </p>
+        </span>
+        </summary>
         <p class="formula-explica">
           <i>F</i> = força entre as cargas (N) · <i>q</i><sub>1</sub> e <i>q</i><sub>2</sub> = cargas (C) ·
           <i>r</i> = distância entre elas (m) · <i>k</i> = constante do meio (9 × 10<sup>9</sup> N·m²/C² no vácuo).
           Repare no <i>r</i><sup>2</sup> embaixo: afastar um pouco já derruba muito a força.
         </p>
-      </div>
+      </details>
 
-      <div class="formula">
-        <div class="formula-topo"><span>1ª Lei de Ohm</span><span class="mais">+</span></div>
-        <p class="mat formula-corpo"><i>V</i> = <i>R</i> · <i>I</i></p>
+      <details class="formula">
+        <summary>
+          <span class="formula-topo"><span>1ª Lei de Ohm</span><span class="mais" aria-hidden="true">+</span></span>
+          <span class="mat formula-corpo"><i>V</i> = <i>R</i> · <i>I</i></span>
+        </summary>
         <p class="formula-explica">
           <i>V</i> = tensão (V) · <i>R</i> = resistência (Ω) · <i>I</i> = corrente (A).
-          Dá para isolar a corrente como <i>I</i> = <i>V</i> / <i>R</i>: quanto maior a resistência,
+          Dá para isolar a corrente como <i>I</i> = <span class="fracao"><span class="cima"><i>V</i></span><span class="baixo"><i>R</i></span></span>: quanto maior a resistência,
           menos carga consegue passar.
         </p>
-      </div>
+      </details>
 
-      <div class="formula">
-        <div class="formula-topo"><span>Efeito Joule</span><span class="mais">+</span></div>
-        <p class="mat formula-corpo"><i>P</i> = <i>R</i> · <i>I</i><sup>2</sup></p>
+      <details class="formula">
+        <summary>
+          <span class="formula-topo"><span>Efeito Joule</span><span class="mais" aria-hidden="true">+</span></span>
+          <span class="mat formula-corpo"><i>P</i> = <i>R</i> · <i>I</i><sup>2</sup></span>
+        </summary>
         <p class="formula-explica">
           <i>P</i> = potência que vira calor (W). O <i>I</i><sup>2</sup> diz que o efeito cresce
           rápido: dobrar a corrente quadruplica o calor. É por isso que o carregador esquenta!
         </p>
-      </div>
+      </details>
 
-      <div class="formula">
-        <div class="formula-topo"><span>Força de Lorentz</span><span class="mais">+</span></div>
-        <p class="mat formula-corpo">
+      <details class="formula">
+        <summary>
+          <span class="formula-topo"><span>Força de Lorentz</span><span class="mais" aria-hidden="true">+</span></span>
+          <span class="mat formula-corpo">
           <span class="vetor"><i>F</i></span> = <i>q</i> ( <span class="vetor"><i>E</i></span> +
           <span class="vetor"><i>v</i></span> × <span class="vetor"><i>B</i></span> )
-        </p>
+        </span>
+        </summary>
         <p class="formula-explica">
           <i>q</i> = carga · <span class="vetor"><i>E</i></span> = campo elétrico ·
           <span class="vetor"><i>B</i></span> = campo magnético · <span class="vetor"><i>v</i></span> = velocidade da carga.
@@ -338,75 +350,84 @@
           a parte <span class="vetor"><i>v</i></span> × <span class="vetor"><i>B</i></span> empurra de lado —
           é essa que faz o motor girar.
         </p>
-      </div>
+      </details>
 
       <h3 class="subtitulo">As 4 equações de Maxwell</h3>
 
-      <div class="formula">
-        <div class="formula-topo"><span>Gauss (eletricidade)</span><span class="mais">+</span></div>
-        <p class="mat formula-corpo">
+      <details class="formula">
+        <summary>
+          <span class="formula-topo"><span>Gauss (eletricidade)</span><span class="mais" aria-hidden="true">+</span></span>
+          <span class="mat formula-corpo">
           <span class="int">∮</span> <span class="vetor"><i>E</i></span> · d<i>A</i> =
           <span class="fracao">
             <span class="cima"><i>Q</i></span>
             <span class="baixo"><i>ε</i><sub>0</sub></span>
           </span>
-        </p>
+        </span>
+        </summary>
         <p class="formula-explica">
           As cargas elétricas são a "fonte" do campo elétrico: quantas linhas de campo saem
           de uma superfície fechada depende só da carga <i>Q</i> que está lá dentro.
           <i>ε</i><sub>0</sub> é a permissividade do vácuo.
         </p>
-      </div>
+      </details>
 
-      <div class="formula">
-        <div class="formula-topo"><span>Gauss (magnetismo)</span><span class="mais">+</span></div>
-        <p class="mat formula-corpo">
+      <details class="formula">
+        <summary>
+          <span class="formula-topo"><span>Gauss (magnetismo)</span><span class="mais" aria-hidden="true">+</span></span>
+          <span class="mat formula-corpo">
           <span class="int">∮</span> <span class="vetor"><i>B</i></span> · d<i>A</i> = 0
-        </p>
+        </span>
+        </summary>
         <p class="formula-explica">
           Não existe ímã com um polo só. Toda linha de campo magnético que entra numa
           superfície tem que sair por outro lado: as linhas sempre se fecham em loops.
         </p>
-      </div>
+      </details>
 
-      <div class="formula">
-        <div class="formula-topo"><span>Indução de Faraday</span><span class="mais">+</span></div>
-        <p class="mat formula-corpo">
+      <details class="formula">
+        <summary>
+          <span class="formula-topo"><span>Indução de Faraday</span><span class="mais" aria-hidden="true">+</span></span>
+          <span class="mat formula-corpo">
           ℰ = −
           <span class="fracao">
             <span class="cima">d<i>Φ</i><sub>B</sub></span>
             <span class="baixo">d<i>t</i></span>
           </span>
-        </p>
+        </span>
+        </summary>
         <p class="formula-explica">
           Quando o fluxo magnético <i>Φ</i><sub>B</sub> muda, aparece uma força eletromotriz
           ℰ (e por isso uma corrente). O sinal de menos é a Lei de Lenz: a corrente criada
           se opõe à mudança que a gerou. É o princípio do gerador e do transformador.
         </p>
-      </div>
+      </details>
 
-      <div class="formula">
-        <div class="formula-topo"><span>Ampère-Maxwell</span><span class="mais">+</span></div>
-        <p class="mat formula-corpo">
+      <details class="formula">
+        <summary>
+          <span class="formula-topo"><span>Ampère-Maxwell</span><span class="mais" aria-hidden="true">+</span></span>
+          <span class="mat formula-corpo">
           <span class="int">∮</span> <span class="vetor"><i>B</i></span> · d<i>l</i> =
           <i>μ</i><sub>0</sub><i>I</i> + <i>μ</i><sub>0</sub><i>ε</i><sub>0</sub>
           <span class="fracao">
             <span class="cima">d<i>Φ</i><sub>E</sub></span>
             <span class="baixo">d<i>t</i></span>
           </span>
-        </p>
+        </span>
+        </summary>
         <p class="formula-explica">
           Campo magnético nasce de corrente elétrica (<i>I</i>) ou de campo elétrico que varia
           no tempo. Foi o segundo termo — a parte que Maxwell acrescentou — que permitiu
           prever a existência das ondas eletromagnéticas.
         </p>
-      </div>
+      </details>
 
       <h3 class="subtitulo">Ondas eletromagnéticas</h3>
 
-      <div class="formula">
-        <div class="formula-topo"><span>Velocidade da luz</span><span class="mais">+</span></div>
-        <p class="mat formula-corpo">
+      <details class="formula">
+        <summary>
+          <span class="formula-topo"><span>Velocidade da luz</span><span class="mais" aria-hidden="true">+</span></span>
+          <span class="mat formula-corpo">
           <i>c</i> =
           <span class="fracao">
             <span class="cima">1</span>
@@ -421,39 +442,45 @@
               </span>
             </span>
           </span>
-        </p>
+        </span>
+        </summary>
         <p class="formula-explica">
           <i>ε</i><sub>0</sub> ≈ 8,85 × 10<sup>−12</sup> F/m · <i>μ</i><sub>0</sub> = 4π × 10<sup>−7</sup> T·m/A.
           Fazendo a conta dá 3 × 10<sup>8</sup> m/s — a velocidade da luz. Foi assim que Maxwell
           percebeu que a luz é uma onda eletromagnética.
         </p>
-      </div>
+      </details>
 
-      <div class="formula">
-        <div class="formula-topo"><span>Equação da onda</span><span class="mais">+</span></div>
-        <p class="mat formula-corpo"><i>v</i> = <i>λ</i> · <i>f</i></p>
+      <details class="formula">
+        <summary>
+          <span class="formula-topo"><span>Equação da onda</span><span class="mais" aria-hidden="true">+</span></span>
+          <span class="mat formula-corpo"><i>v</i> = <i>λ</i> · <i>f</i></span>
+        </summary>
         <p class="formula-explica">
           <i>λ</i> = comprimento de onda (m) · <i>f</i> = frequência (Hz). Como <i>v</i> é fixo
           para a luz, onda curta significa frequência alta — e é por isso que o 5G, que usa
           frequência alta, alcana uma distância menor que o Wi-Fi antigo.
         </p>
-      </div>
+      </details>
 
       <!-- Calculadora da Lei de Ohm (funciona com o script.js) -->
       <div class="calculadora">
         <p class="mini">TESTE VOCÊ MESMO</p>
         <h3>Lei de Ohm na prática</h3>
         <p class="mat calculadora-formula"><i>V</i> = <i>R</i> · <i>I</i> &nbsp;·&nbsp; <i>P</i> = <i>R</i> · <i>I</i><sup>2</sup></p>
-        <p class="valor"><span id="valor-tensao">20</span> V</p>
-        <p class="legenda">Tensão no circuito</p>
+        <p class="legenda">Arraste os controles e veja a conta mudar.</p>
 
-        <label>Resistência: <b><span id="texto-r">10</span> Ω</b></label>
+        <label for="resistencia">Resistência (<i>R</i>): <b><span id="texto-r">10</span> Ω</b></label>
         <input type="range" id="resistencia" min="1" max="100" value="10">
 
-        <label>Corrente: <b><span id="texto-i">2</span> A</b></label>
+        <label for="corrente">Corrente (<i>I</i>): <b><span id="texto-i">2</span> A</b></label>
         <input type="range" id="corrente" min="1" max="20" value="2">
 
-        <p class="legenda">Potência dissipada (Efeito Joule): <b><span id="valor-potencia">40</span> W</b></p>
+        <!-- resultados: o leitor de tela anuncia quando mudam -->
+        <div class="resultados" aria-live="polite">
+          <p><span class="legenda">Tensão</span><span class="valor"><span id="valor-tensao">20</span> V</span></p>
+          <p><span class="legenda">Potência (calor)</span><span class="valor"><span id="valor-potencia">40</span> W</span></p>
+        </div>
       </div>
     </div>
   </section>
@@ -466,7 +493,7 @@
       <p>Uma coisa legal que eu descobri: várias unidades de medida que usamos levam o nome deles.</p>
 
       <!-- Os cartões são criados pelo script.js a partir de uma lista -->
-      <div id="lista-cientistas" class="cartoes"></div>
+      <ul id="lista-cientistas" class="lista-cientistas"></ul>
     </div>
   </section>
 
@@ -480,11 +507,12 @@
     </p>
     <p class="autor">Pesquisa e site feitos por <b>Bruno Barreto</b></p>
   </section>
+  </main>
 
   <footer class="rodape">
     <span>© 2026 Física IFBA Campus Camaçari</span>
     <span>Site desenvolvido por Bruno Barreto com auxílio de IA</span>
-    <a href="#inicio">Voltar ao início ↗</a>
+    <a href="#inicio">Voltar ao início ↑</a>
   </footer>
 
   <script src="script.js"></script>

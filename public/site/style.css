@@ -7,7 +7,7 @@
   --fundo-escuro: #1e1b2e;   /* seção escura (cientistas) */
   --branco: #ffffff;
   --texto: #1c1f2a;
-  --texto-suave: #5b6275;
+  --texto-suave: #4f566a;    /* cinza com contraste suficiente para leitura */
   --azul: #1f5fff;           /* cor de destaque */
   --azul-claro: #e3f0ff;     /* caixas de curiosidade */
   --verde: #2fbf8f;
@@ -21,7 +21,7 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: "Inter", Arial, sans-serif;
-  font-weight: 300;
+  font-size: 1.0625rem;      /* 17px: confortável no celular e no computador */
   background: var(--fundo);
   color: var(--texto);
   line-height: 1.7;
@@ -32,10 +32,41 @@ h1, h2, h3, strong {
   font-weight: 500;
 }
 
-h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.2; margin-bottom: 24px; }
-h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); line-height: 1.2; margin-bottom: 16px; }
+/* escala de tamanhos: h1 > h2 > h3 > texto (poucos tamanhos, sempre os mesmos) */
+h1 { font-size: clamp(2rem, 5vw, 2.75rem); line-height: 1.15; margin-bottom: 10px; letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); line-height: 1.2; margin-bottom: 14px; letter-spacing: -0.01em; }
+h3 { font-size: 1.125rem; line-height: 1.35; }
 p  { margin-bottom: 14px; color: var(--texto-suave); }
 b  { font-weight: 600; color: var(--texto); }
+
+/* contorno visível em tudo que recebe foco pelo teclado */
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible {
+  outline: 3px solid var(--azul);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* link "Pular para o conteúdo": só aparece ao usar Tab */
+.pular {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  z-index: 20;
+  padding: 10px 14px;
+  background: var(--azul);
+  color: var(--branco);
+  border-radius: 6px;
+}
+.pular:focus { top: 12px; }
+
+/* ao clicar no menu, o título não fica escondido atrás do cabeçalho fixo */
+section { scroll-margin-top: 64px; }
+
+/* quem pediu menos movimento no sistema não vê rolagem animada */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
 
 /* ===================== CABEÇALHO ===================== */
 .cabecalho {
@@ -61,18 +92,20 @@ b  { font-weight: 600; color: var(--texto); }
 .logo-ifba { width: 28px; height: 38px; }
 
 .marca strong { display: block; font-size: 1rem; }
-.marca small  { font-size: 0.65rem; letter-spacing: 2px; color: var(--texto-suave); }
+.marca small  { font-size: 0.7rem; letter-spacing: 2px; color: var(--texto-suave); }
 .azul { color: var(--azul); }
 
 .menu { display: flex; align-items: center; gap: 22px; }
 
 .menu a {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--texto-suave);
   text-decoration: none;
 }
 
 .menu a:hover { color: var(--azul); }
+.botao-azul:hover { background: #1647c9; }
+.botao-azul:active { transform: translateY(1px); }
 
 .botao-azul {
   background: var(--azul);
@@ -85,7 +118,10 @@ b  { font-weight: 600; color: var(--texto); }
   display: none;
   background: none;
   border: none;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
+  width: 44px;               /* área de toque confortável */
+  height: 44px;
+  color: var(--texto);
   cursor: pointer;
 }
 
@@ -93,17 +129,17 @@ b  { font-weight: 600; color: var(--texto); }
 .secao {
   max-width: 1050px;
   margin: 0 auto;
-  padding: 70px 28px;
+  padding: 80px 28px;
 }
 
 .secao-cinza   { background: var(--fundo-cinza); }
 .secao-escura  { background: var(--fundo-escuro); }
 .secao-escura h2, .secao-escura h3 { color: var(--branco); }
-.secao-escura p { color: #b9bccb; }
+.secao-escura p { color: #c9ccd9; }
 
 /* Etiqueta azul com tracinho antes (ex: "— A NOSSA PESQUISA") */
 .etiqueta {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 2px;
   color: var(--azul);
@@ -122,52 +158,51 @@ b  { font-weight: 600; color: var(--texto); }
 
 .etiqueta.verde { color: var(--verde); }
 
-.texto-lado { max-width: 560px; }
+.texto-lado { max-width: 620px; }
 
-.subtitulo { margin: 34px 0 14px; font-size: 1.2rem; }
+.subtitulo-pagina { font-size: 1rem; margin-bottom: 0; }
+
+.subtitulo { margin: 40px 0 14px; font-size: 1.125rem; }
 
 .mini {
-  font-size: 0.68rem;
+  font-size: 0.75rem;
+  font-weight: 600;
   letter-spacing: 1px;
   color: var(--azul);
   margin-bottom: 6px;
 }
 
-/* Caixa de curiosidade com borda azul */
-.curiosidade {
-  background: var(--azul-claro);
-  border-left: 3px solid var(--azul);
-  padding: 16px 20px;
-  border-radius: 6px;
-  margin-top: 24px;
-  color: var(--texto-suave);
-}
-
 /* ===================== A PESQUISA ===================== */
 /* a pesquisa é um texto corrido: um parágrafo embaixo do outro, sem caixas */
-.pesquisa { max-width: 720px; margin-top: 26px; }
+.pesquisa { max-width: 680px; margin-top: 36px; }
+.pesquisa p { margin-bottom: 18px; }
 
 /* os conceitos: uma lista simples, um item por linha */
-.conceitos { list-style: none; margin: 0 0 16px; padding-left: 20px; }
-.conceitos li { margin-bottom: 8px; }
+.conceitos { margin: -6px 0 18px; padding-left: 22px; color: var(--texto-suave); }
+.conceitos li { margin-bottom: 8px; padding-left: 4px; }
+.conceitos li::marker { color: var(--azul); }
 
 /* ===================== LINHA DO TEMPO (passos) ===================== */
 .passos {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 30px;
+  gap: 28px 32px;
   margin-top: 40px;
 }
+
+/* traço em cima de cada ano: dá ritmo de "linha do tempo" sem virar cartão */
+.passo { border-top: 2px solid var(--borda); padding-top: 14px; }
 
 .numero {
   font-family: "Space Grotesk", monospace;
   color: var(--azul);
   letter-spacing: 2px;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
-.passo h3 { margin: 8px 0; font-size: 1.1rem; }
-.passo p  { font-size: 0.88rem; }
+.passo h3 { margin: 6px 0 8px; }
+.passo p  { font-size: 0.95rem; margin: 0; }
 
 /* ===================== CARTÕES ===================== */
 .cartoes {
@@ -184,12 +219,11 @@ b  { font-weight: 600; color: var(--texto); }
   border: 1px solid var(--borda);
   border-radius: 8px;
   padding: 24px;
-  transition: transform 0.2s;
 }
 
-.cartao:hover { transform: translateY(-4px); }
-.cartao h3 { margin-bottom: 8px; }
-.cartao p { font-size: 0.9rem; }
+/* os cartões não são clicáveis, então não "pulam" ao passar o mouse */
+.cartao h3 { margin-bottom: 10px; }
+.cartao p { font-size: 0.95rem; }
 
 /* "Detalhe" no fim do cartão: um bloco separado, com fundo suave */
 .nota {
@@ -197,17 +231,22 @@ b  { font-weight: 600; color: var(--texto); }
   padding: 12px 14px;
   background: var(--fundo);
   border-left: 3px solid var(--azul);
-  border-radius: 0 6px 6px 0;
-  font-size: 0.82rem;
+  font-size: 0.9rem;
 }
 
-/* Cartões da seção escura (cientistas) */
-.secao-escura .cartao {
-  background: #27243a;
-  border-color: #3a3652;
+/* Lista dos cientistas (seção escura): duas colunas, separadas por linhas */
+.lista-cientistas {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 0 48px;
+  margin-top: 32px;
 }
 
-.secao-escura .mini { color: var(--verde); }
+.lista-cientistas li { border-top: 1px solid #3a3652; padding: 18px 0 6px; }
+.lista-cientistas h3 { margin-bottom: 6px; }
+.lista-cientistas p { font-size: 0.95rem; }
+.anos { font-family: "Inter", sans-serif; font-size: 0.85rem; font-weight: 400; color: var(--verde); margin-left: 6px; }
 
 /* ===================== FÓRMULAS ===================== */
 .formula {
@@ -215,10 +254,13 @@ b  { font-weight: 600; color: var(--texto); }
   border: 1px solid var(--borda);
   border-radius: 8px;
   margin-bottom: 10px;
-  cursor: pointer;
 }
 
-.formula:hover { border-color: var(--azul); }
+.formula:hover, .formula[open] { border-color: var(--azul); }
+
+/* a "linha clicável" da fórmula (tag <summary>) */
+.formula summary { display: block; cursor: pointer; list-style: none; border-radius: 8px; }
+.formula summary::-webkit-details-marker { display: none; }
 
 /* linha de cima: nome da fórmula + o "+" que abre a explicação */
 .formula-topo {
@@ -226,9 +268,10 @@ b  { font-weight: 600; color: var(--texto); }
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  padding: 12px 18px 0;
+  padding: 14px 18px 0;
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
+  font-weight: 500;
   color: var(--texto-suave);
 }
 
@@ -239,24 +282,23 @@ b  { font-weight: 600; color: var(--texto); }
   transition: transform 0.2s;
 }
 
-.formula.aberta .mais { transform: rotate(45deg); }
+.formula[open] .mais { transform: rotate(45deg); }
 
 /* a fórmula em si, sempre visível, centralizada */
 .formula-corpo {
+  display: block;
+  overflow-x: auto;           /* fórmula longa rola dentro dela, nunca a página */
   padding: 16px 18px 18px;
   margin: 0;
   text-align: center;
 }
 
 .formula-explica {
-  display: none;              /* escondido até clicar */
   border-top: 1px dashed var(--borda);
   padding: 14px 18px;
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
-
-.formula.aberta .formula-explica { display: block; }
 
 /* ---------- escrita "de papel": fração, raiz, potência, vetor ---------- */
 
@@ -324,8 +366,8 @@ b  { font-weight: 600; color: var(--texto); }
 
 /* ===================== CALCULADORA ===================== */
 .calculadora {
-  max-width: 380px;
-  margin: 50px auto 0;
+  max-width: 420px;
+  margin: 48px auto 0;
   background: var(--azul-claro);
   border: 1px solid #c7defc;
   border-radius: 8px;
@@ -339,18 +381,24 @@ b  { font-weight: 600; color: var(--texto); }
   color: var(--azul);
 }
 
+.legenda { font-size: 0.9rem; }
+.calculadora > .legenda { text-align: center; margin: 4px 0 8px; }
+
+.calculadora label { display: block; font-size: 0.95rem; margin-top: 14px; }
+.calculadora input { width: 100%; height: 32px; accent-color: var(--azul); cursor: pointer; }
+
+/* os dois resultados lado a lado, com o nome em cima do número */
+.resultados { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
+.resultados p { margin: 0; padding: 12px; background: var(--branco); border-radius: 6px; text-align: center; }
+.resultados .legenda { display: block; }
 .valor {
+  display: block;
   font-family: "Space Grotesk", sans-serif;
-  font-size: 3rem;
+  font-size: 1.9rem;
+  font-weight: 600;
+  line-height: 1.2;
   color: var(--azul);
-  text-align: center;
-  margin: 10px 0 0;
 }
-
-.legenda { text-align: center; font-size: 0.85rem; }
-
-.calculadora label { display: block; font-size: 0.85rem; margin-top: 14px; }
-.calculadora input { width: 100%; accent-color: var(--azul); }
 
 /* ===================== SOBRE / RODAPÉ ===================== */
 .autor { margin-top: 20px; }
@@ -361,16 +409,12 @@ b  { font-weight: 600; color: var(--texto); }
   justify-content: space-between;
   gap: 12px;
   padding: 30px 28px;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: var(--texto-suave);
   border-top: 1px solid var(--borda);
 }
 
 .rodape a { color: var(--azul); text-decoration: none; }
-
-/* ===================== ANIMAÇÃO AO ROLAR ===================== */
-.escondido { opacity: 0; transform: translateY(24px); transition: opacity 0.6s, transform 0.6s; }
-.visivel   { opacity: 1; transform: none; }
 
 /* ===================== CELULAR ===================== */
 @media (max-width: 860px) {
@@ -384,14 +428,31 @@ b  { font-weight: 600; color: var(--texto); }
     right: 0;
     flex-direction: column;
     align-items: flex-start;
-    gap: 14px;
-    padding: 18px 28px;
+    gap: 0;
+    padding: 8px 20px 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
     background: var(--branco);
     border-bottom: 1px solid var(--borda);
   }
 
   .menu.aberto { display: flex; }
 
+  /* cada link do menu vira uma linha grande, fácil de tocar */
+  .menu a { width: 100%; padding: 12px 0; font-size: 1rem; }
+  .menu .botao-azul { margin-top: 8px; padding: 12px 14px; text-align: center; }
+
+  .cabecalho { padding: 8px 20px; }
+  .secao { padding: 56px 20px; }
+
   /* no celular a fórmula ganha uma linha só para ela */
   .mat { font-size: 1.05rem; }
+}
+
+/* ===================== CELULAR PEQUENO ===================== */
+@media (max-width: 480px) {
+  body { font-size: 1rem; }
+  .cartoes { grid-template-columns: 1fr; }
+  .lista-cientistas { grid-template-columns: 1fr; }
+  .rodape { flex-direction: column; padding: 24px 20px; }
+  .calculadora { padding: 20px; }
 }

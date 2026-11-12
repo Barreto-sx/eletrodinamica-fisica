@@ -4,15 +4,31 @@
 const botaoMenu = document.getElementById("botao-menu");
 const menu = document.getElementById("menu");
 
+// abre ou fecha o menu e avisa o leitor de tela (aria-expanded)
+function mostrarMenu(abrir) {
+  menu.classList.toggle("aberto", abrir);
+  botaoMenu.setAttribute("aria-expanded", abrir);
+  botaoMenu.setAttribute("aria-label", abrir ? "Fechar menu" : "Abrir menu");
+  botaoMenu.textContent = abrir ? "✕" : "☰";
+}
+
 botaoMenu.addEventListener("click", function () {
-  menu.classList.toggle("aberto");
+  mostrarMenu(!menu.classList.contains("aberto"));
 });
 
 // Fecha o menu depois de escolher uma seção
 menu.querySelectorAll("a").forEach(function (link) {
   link.addEventListener("click", function () {
-    menu.classList.remove("aberto");
+    mostrarMenu(false);
   });
+});
+
+// A tecla Esc também fecha o menu
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && menu.classList.contains("aberto")) {
+    mostrarMenu(false);
+    botaoMenu.focus();
+  }
 });
 
 // =========================================================
@@ -32,26 +48,17 @@ const cientistas = [
 const lista = document.getElementById("lista-cientistas");
 
 cientistas.forEach(function (c) {
-  const cartao = document.createElement("div");
-  cartao.className = "cartao";
-  cartao.innerHTML =
-    "<p class='mini'>" + c.anos + "</p>" +
-    "<h3>" + c.nome + "</h3>" +
+  const item = document.createElement("li");
+  item.innerHTML =
+    "<h3>" + c.nome + " <span class='anos'>" + c.anos + "</span></h3>" +
     "<p>" + c.feito + "</p>";
-  lista.appendChild(cartao);
+  lista.appendChild(item);
 });
 
-// =========================================================
-// 3. FÓRMULAS — tocar abre/fecha a explicação
-// =========================================================
-document.querySelectorAll(".formula").forEach(function (formula) {
-  formula.addEventListener("click", function () {
-    formula.classList.toggle("aberta");
-  });
-});
+// (As fórmulas abrem sozinhas: usam a tag <details> do próprio HTML, sem JavaScript.)
 
 // =========================================================
-// 4. CALCULADORA — V = R · I  e  P = R · I²
+// 3. CALCULADORA — V = R · I  e  P = R · I²
 //    Atualiza sozinha quando você arrasta os controles
 // =========================================================
 const campoR = document.getElementById("resistencia");
@@ -71,18 +78,3 @@ campoR.addEventListener("input", calcular);
 campoI.addEventListener("input", calcular);
 calcular();
 
-// =========================================================
-// 5. ANIMAÇÃO — os elementos aparecem ao rolar a página
-// =========================================================
-const animados = document.querySelectorAll(".passo, .cartao, .formula");
-
-const observador = new IntersectionObserver(function (itens) {
-  itens.forEach(function (item) {
-    if (item.isIntersecting) item.target.classList.add("visivel");
-  });
-});
-
-animados.forEach(function (el) {
-  el.classList.add("escondido");
-  observador.observe(el);
-});
