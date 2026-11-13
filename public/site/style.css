@@ -76,7 +76,8 @@ section { scroll-margin-top: 64px; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 28px;
+  /* no computador grande, logo e menu ficam alinhados com o texto (coluna de 1050px) */
+  padding: 12px max(28px, calc((100% - 1050px) / 2 + 28px));
   background: var(--branco);
   border-bottom: 1px solid var(--borda);
 }
@@ -103,7 +104,15 @@ section { scroll-margin-top: 64px; }
   text-decoration: none;
 }
 
+.menu a {
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;   /* espaço para o sublinhado da seção atual */
+  transition: color 0.15s, border-color 0.15s;
+}
 .menu a:hover { color: var(--azul); }
+
+/* link da seção que está na tela agora (o script.js marca com aria-current) */
+.menu a[aria-current="true"] { color: var(--texto); border-bottom-color: var(--azul); }
 
 .botao-menu {
   display: none;
@@ -156,9 +165,8 @@ section { scroll-margin-top: 64px; }
 .subtitulo { margin: 40px 0 14px; font-size: 1.125rem; }
 
 .mini {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  letter-spacing: 1px;
   color: var(--azul);
   margin-bottom: 6px;
 }
@@ -182,7 +190,7 @@ section { scroll-margin-top: 64px; }
 }
 
 /* traço em cima de cada ano: dá ritmo de "linha do tempo" sem virar cartão */
-.passo { border-top: 2px solid var(--borda); padding-top: 14px; }
+.passo { border-top: 2px solid var(--azul); padding-top: 14px; }
 
 .numero {
   font-family: "Space Grotesk", monospace;
@@ -376,7 +384,7 @@ section { scroll-margin-top: 64px; }
 .calculadora > .legenda { text-align: center; margin: 4px 0 8px; }
 
 .calculadora label { display: block; font-size: 0.95rem; margin-top: 14px; }
-.calculadora input { width: 100%; height: 32px; accent-color: var(--azul); cursor: pointer; }
+.calculadora input { width: 100%; height: 44px; accent-color: var(--azul); cursor: pointer; }
 
 /* os dois resultados lado a lado, com o nome em cima do número */
 .resultados { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
@@ -397,8 +405,8 @@ section { scroll-margin-top: 64px; }
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 12px;
-  padding: 30px 28px;
-  font-size: 0.85rem;
+  padding: 30px max(28px, calc((100% - 1050px) / 2 + 28px));
+  font-size: 0.9rem;
   color: var(--texto-suave);
   border-top: 1px solid var(--borda);
 }
@@ -427,7 +435,9 @@ section { scroll-margin-top: 64px; }
   .menu.aberto { display: flex; }
 
   /* cada link do menu vira uma linha grande, fácil de tocar */
-  .menu a { width: 100%; padding: 12px 0; font-size: 1rem; }
+  .menu a { width: 100%; padding: 12px 0; font-size: 1rem; border-bottom: 1px solid var(--borda); }
+  .menu a:last-child { border-bottom: none; }
+  .menu a[aria-current="true"] { border-bottom-color: var(--borda); color: var(--azul); }
 
   .cabecalho { padding: 8px 20px; }
   .secao { padding: 56px 20px; }

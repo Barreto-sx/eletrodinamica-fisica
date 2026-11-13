@@ -55,6 +55,26 @@ cientistas.forEach(function (c) {
   lista.appendChild(item);
 });
 
+// =========================================================
+// MENU: destaca a seção que está aparecendo na tela
+// =========================================================
+const linksMenu = menu.querySelectorAll("a");
+
+const observador = new IntersectionObserver(function (entradas) {
+  entradas.forEach(function (entrada) {
+    if (!entrada.isIntersecting) return;
+    linksMenu.forEach(function (link) {
+      // marca só o link que aponta para a seção visível
+      const atual = link.getAttribute("href") === "#" + entrada.target.id;
+      link.setAttribute("aria-current", atual ? "true" : "false");
+    });
+  });
+}, { rootMargin: "-40% 0px -55% 0px" }); // conta como "visível" quando passa pelo meio da tela
+
+document.querySelectorAll("main section[id]").forEach(function (secao) {
+  observador.observe(secao);
+});
+
 // (As fórmulas abrem sozinhas: usam a tag <details> do próprio HTML, sem JavaScript.)
 
 // =========================================================
