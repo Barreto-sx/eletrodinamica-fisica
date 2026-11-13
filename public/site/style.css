@@ -104,15 +104,6 @@ section { scroll-margin-top: 64px; }
 }
 
 .menu a:hover { color: var(--azul); }
-.botao-azul:hover { background: #1647c9; }
-.botao-azul:active { transform: translateY(1px); }
-
-.botao-azul {
-  background: var(--azul);
-  color: var(--branco) !important;
-  padding: 8px 14px;
-  border-radius: 6px;
-}
 
 .botao-menu {
   display: none;
@@ -400,9 +391,7 @@ section { scroll-margin-top: 64px; }
   color: var(--azul);
 }
 
-/* ===================== SOBRE / RODAPÉ ===================== */
-.autor { margin-top: 20px; }
-
+/* ===================== RODAPÉ ===================== */
 .rodape {
   display: flex;
   flex-wrap: wrap;
@@ -439,7 +428,6 @@ section { scroll-margin-top: 64px; }
 
   /* cada link do menu vira uma linha grande, fácil de tocar */
   .menu a { width: 100%; padding: 12px 0; font-size: 1rem; }
-  .menu .botao-azul { margin-top: 8px; padding: 12px 14px; text-align: center; }
 
   .cabecalho { padding: 8px 20px; }
   .secao { padding: 56px 20px; }
