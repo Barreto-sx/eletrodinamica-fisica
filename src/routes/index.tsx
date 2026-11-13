@@ -3,7 +3,7 @@ import { createFileRoute, redirect } from "@tanstack/react-router";
 // O site real é feito em HTML/CSS/JS puro, na pasta public/site/
 export const Route = createFileRoute("/")({
   beforeLoad: () => {
-    throw redirect({ href: "site/index.html", reloadDocument: true });
+    throw redirect({ href: "/site/index.html", reloadDocument: true });
   },
   head: () => ({
     meta: [
