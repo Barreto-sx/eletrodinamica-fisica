@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eletrodinâmica – IFBA Camaçari</title>
+  <meta name="description" content="Trabalho de Física do IFBA Campus Camaçari sobre a história, as fórmulas e as aplicações da eletrodinâmica e do eletromagnetismo.">
+
+  <!-- Fontes do Google: Space Grotesk (títulos) e Inter (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/site/style.css">
+</head>
+<body>
+  <!-- atalho para quem navega pelo teclado: pula direto para o conteúdo -->
+  <a href="#inicio" class="pular">Pular para o conteúdo</a>
+
+  <!-- ===================== CABEÇALHO ===================== -->
+  <header class="cabecalho">
+    <a href="#inicio" class="marca" aria-label="Eletrodinâmica, IFBA Campus Camaçari — voltar ao início">
+      <!-- Logo do IFBA desenhada em SVG (quadrados verdes + círculo vermelho) -->
+      <svg class="logo-ifba" viewBox="0 0 30 40" role="img" aria-label="Logo do Instituto Federal da Bahia">
+        <circle cx="5" cy="5" r="4" fill="#c8102e"/>
+        <rect x="11" y="1" width="8" height="8" rx="1" fill="#2f9e41"/>
+        <rect x="21" y="1" width="8" height="8" rx="1" fill="#2f9e41"/>
+        <rect x="1"  y="11" width="8" height="8" rx="1" fill="#2f9e41"/>
+        <rect x="11" y="11" width="8" height="8" rx="1" fill="#2f9e41"/>
+        <rect x="1"  y="21" width="8" height="8" rx="1" fill="#2f9e41"/>
+        <rect x="11" y="21" width="8" height="8" rx="1" fill="#2f9e41"/>
+        <rect x="21" y="21" width="8" height="8" rx="1" fill="#2f9e41"/>
+        <rect x="1"  y="31" width="8" height="8" rx="1" fill="#2f9e41"/>
+        <rect x="11" y="31" width="8" height="8" rx="1" fill="#2f9e41"/>
+      </svg>
+      <div>
+        <strong>Física <span class="azul">+</span> Eletromagnetismo</strong>
+        <small>IFBA CAMPUS CAMAÇARI</small>
+      </div>
+    </a>
+
+    <button id="botao-menu" class="botao-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">☰</button>
+
+    <nav id="menu" class="menu" aria-label="Seções do site">
+      <a href="#inicio">A pesquisa</a>
+      <a href="#historia">História</a>
+      <a href="#hoje">No dia a dia</a>
+      <a href="#formulas">Fórmulas</a>
+      <a href="#cientistas">Cientistas</a>
+    </nav>
+  </header>
+
+  <!-- ===================== A PESQUISA ===================== -->
+  <!--
+    A pesquisa inteira em um texto só, sem caixas.
+    O nome de cada assunto aparece em negrito no começo do parágrafo.
+  -->
+  <main>
+  <section id="inicio" class="secao">
+    <p class="etiqueta">A PESQUISA</p>
+    <h1>Eletromagnetismo</h1>
+    <p class="subtitulo-pagina">Trabalho de Física de <b>Bruno Barreto</b> · IFBA Campus Camaçari</p>
+
+    <div class="pesquisa">
+      <p>
+        <b>O que é eletromagnetismo?</b> O eletromagnetismo é a área da Física que estuda a
+        relação entre eletricidade e magnetismo. Ele mostra que uma corrente elétrica pode
+        produzir um campo magnético e que um campo magnético variável pode produzir corrente elétrica.
+      </p>
+
+      <p>
+        <b>Como surgiu?</b> Um dos principais responsáveis pelo desenvolvimento do
+        eletromagnetismo foi Hans Christian Ørsted, que descobriu, em 1820, que uma corrente
+        elétrica passando por um fio era capaz de movimentar uma bússola. Depois, cientistas
+        como Michael Faraday e James Clerk Maxwell contribuíram para desenvolver as principais
+        teorias do eletromagnetismo.
+      </p>
+
+      <p><b>Principais conceitos:</b></p>
+      <ul class="conceitos">
+        <li><b>Campo elétrico:</b> região ao redor de cargas elétricas onde elas podem exercer forças.</li>
+        <li><b>Campo magnético:</b> região onde ímãs ou correntes elétricas podem exercer forças magnéticas.</li>
+        <li><b>Corrente elétrica:</b> movimento ordenado de cargas elétricas.</li>
+        <li><b>Indução eletromagnética:</b> produção de uma tensão elétrica por meio da variação de um campo magnético.</li>
+      </ul>
+
+      <p>
+        <b>Aplicações.</b> O eletromagnetismo está presente em vários equipamentos do nosso
+        cotidiano, como motores elétricos, geradores, transformadores, alto-falantes,
+        eletroímãs e carregadores. Ele também é fundamental para o funcionamento dos sistemas
+        de transmissão e distribuição de energia elétrica.
+      </p>
+
+      <p>
+        <b>Conclusão.</b> O eletromagnetismo é fundamental para a sociedade moderna, pois
+        permite transformar e utilizar a energia elétrica de diversas formas. Seus princípios
+        estão presentes tanto em equipamentos simples quanto em grandes sistemas elétricos
+        e tecnológicos.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== HISTÓRIA ===================== -->
+  <section id="historia" class="secao-cinza">
+    <div class="secao">
+      <p class="etiqueta">LINHA DO TEMPO</p>
+      <h2>Um século de descobertas</h2>
+      <p class="texto-lado">
+        Separei os momentos que mais me chamaram atenção. Repare como uma descoberta
+        foi puxando a outra, quase como uma corrente (sem trocadilho).
+      </p>
+
+      <div class="passos">
+        <div class="passo">
+          <span class="numero">1785</span>
+          <h3>Coulomb mede a força elétrica</h3>
+          <p>Com uma balança de torção, Charles-Augustin de Coulomb consegue medir a força entre duas cargas e cria a Lei de Coulomb.</p>
+        </div>
+        <div class="passo">
+          <span class="numero">1800</span>
+          <h3>Volta inventa a pilha</h3>
+          <p>Pela primeira vez existe uma fonte de corrente contínua. É aqui que nasce a eletrodinâmica.</p>
+        </div>
+        <div class="passo">
+          <span class="numero">1820</span>
+          <h3>A bússola de Oersted</h3>
+          <p>Oersted vê a agulha de uma bússola se mexer perto de um fio com corrente. Prova: carga em movimento cria campo magnético.</p>
+        </div>
+        <div class="passo">
+          <span class="numero">1820–26</span>
+          <h3>Ampère coloca em números</h3>
+          <p>André-Marie Ampère cria a matemática para calcular a força entre fios com corrente.</p>
+        </div>
+        <div class="passo">
+          <span class="numero">1831</span>
+          <h3>Faraday e a indução</h3>
+          <p>Michael Faraday descobre o contrário: um campo magnético que varia gera corrente elétrica.</p>
+        </div>
+        <div class="passo">
+          <span class="numero">1864–73</span>
+          <h3>Maxwell junta tudo</h3>
+          <p>James Clerk Maxwell resume tudo em quatro equações e mostra que a luz é uma onda eletromagnética.</p>
+        </div>
+        <div class="passo">
+          <span class="numero">1887</span>
+          <h3>Hertz comprova</h3>
+          <p>Heinrich Hertz cria o primeiro transmissor e receptor de ondas de rádio, confirmando Maxwell na prática.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== NO DIA A DIA ===================== -->
+  <section id="hoje" class="secao">
+    <p class="etiqueta">DO LABORATÓRIO PARA O SEU BOLSO</p>
+    <h2>Onde essas descobertas estão hoje</h2>
+    <p class="texto-lado">
+      A parte que eu mais gostei de pesquisar foi essa: cada descoberta antiga tem um
+      "parente" moderno que a gente usa todo dia sem perceber. Em cada cartão eu explico
+      o caminho que vai do experimento do século XIX até o objeto que está na sua mão agora.
+    </p>
+
+    <div class="cartoes">
+
+      <div class="cartao">
+        <p class="mini">Indução · Faraday</p>
+        <h3>Usinas e geradores</h3>
+        <p>
+          Praticamente toda a energia que chega na sua tomada nasce do efeito que Faraday
+          descobriu em 1831: um ímã girando perto de uma bobina de fio empurra os elétrons
+          e cria corrente elétrica. O que muda de uma usina para outra é só quem gira —
+          a água caindo na hidrelétrica, o vento no parque eólico, o vapor na termelétrica.
+        </p>
+        <p class="nota">
+          <b>Detalhe:</b> o gerador não "cria" eletricidade do nada. Ele só transforma
+          um movimento que já existia em corrente elétrica.
+        </p>
+      </div>
+
+      <div class="cartao">
+        <p class="mini">Corrente alternada · Tesla e Stanley</p>
+        <h3>Redes de alta tensão</h3>
+        <p>
+          A corrente que chega pela rua é alternada: ela troca de sentido 60 vezes por
+          segundo. Isso é herança direta de Tesla e Stanley, que mostraram que dá para
+          subir a tensão com transformadores, atravessar o país pelo fio e depois abaixar
+          de novo perto de casa. Sem isso, as usinas teriam que ficar coladas nas cidades.
+        </p>
+        <p class="nota">
+          <b>Por que importa:</b> com tensão alta, a corrente que circula é menor para a
+          mesma potência — e é a corrente que esquenta o fio e desperdiça energia no caminho.
+        </p>
+      </div>
+
+      <div class="cartao">
+        <p class="mini">Ondas · Maxwell e Hertz</p>
+        <h3>Wi-Fi, 4G/5G e Bluetooth</h3>
+        <p>
+          Maxwell deduziu no papel que um campo elétrico variando cria um campo magnético,
+          que cria outro elétrico, e assim por diante: a perturbação sai viajando sozinha
+          pelo espaço. Hertz provou isso no laboratório anos depois. Toda comunicação sem
+          fio é exatamente isso — um circuito oscilando e lançando ondas no ar.
+        </p>
+        <p class="nota">
+          <b>Detalhe:</b> o Wi-Fi de casa trabalha em 2,4 GHz ou 5 GHz, ou seja, bilhões
+          de oscilações por segundo. A luz visível é a mesma coisa, só que oscilando muito mais rápido.
+        </p>
+      </div>
+
+      <div class="cartao">
+        <p class="mini">Força de Lorentz</p>
+        <h3>Carros elétricos e trens Maglev</h3>
+        <p>
+          Quando uma carga elétrica se move dentro de um campo magnético, ela recebe uma
+          força de lado. É essa força que faz o rotor do motor girar — no carro elétrico,
+          no ventilador, na máquina de lavar e no carregador de furadeira.
+        </p>
+        <p class="nota">
+          <b>No Maglev:</b> a mesma força é usada para levantar o trem a alguns centímetros
+          do trilho. Sem contato, quase não existe atrito — e é por isso que ele alcança
+          velocidades altíssimas gastando menos.
+        </p>
+      </div>
+
+      <div class="cartao">
+        <p class="mini">Semicondutores</p>
+        <h3>Processadores e placas de vídeo</h3>
+        <p>
+          Um transistor é uma chave minúscula controlada por um campo elétrico: ele deixa
+          ou bloqueia a passagem da corrente, e isso vale como um "ligado/desligado" do
+          mundo digital. Um processador de celular junta bilhões dessas chaves trabalhando
+          juntas, bilhões de vezes por segundo.
+        </p>
+        <p class="nota">
+          <b>Por que está aqui:</b> tudo que a gente chama de digital — celular, nuvem,
+          inteligência artificial — é, no fundo, eletricidade sendo controlada chave por chave.
+        </p>
+      </div>
+
+      <div class="cartao">
+        <p class="mini">Ondas de rádio e magnetismo</p>
+        <h3>Ressonância magnética</h3>
+        <p>
+          O aparelho coloca o corpo dentro de um campo magnético muito forte e manda ondas
+          de rádio. Os átomos de hidrogênio da água do nosso corpo respondem a esse estímulo,
+          e o computador usa a resposta de cada pedacinho para montar a imagem dos órgãos
+          por dentro, sem cortar nada.
+        </p>
+        <p class="nota">
+          <b>Vantagem:</b> diferente do raio-X, o exame não usa radiação ionizante,
+          então pode ser repetido quando o médico precisar.
+        </p>
+      </div>
+
+      <div class="cartao">
+        <p class="mini">Indução</p>
+        <h3>Carregador sem fio</h3>
+        <p>
+          Dentro do carregador existe uma bobina percorrida por uma corrente que oscila;
+          dentro do celular existe outra bobina. A energia passa de uma para a outra pelo
+          campo magnético, sem nenhum contato elétrico entre os dois — só a distância
+          de alguns milímetros.
+        </p>
+        <p class="nota">
+          <b>Detalhe:</b> é a indução de Faraday funcionando dentro do seu bolso.
+          O padrão mais comum desses carregadores se chama Qi.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== FÓRMULAS ===================== -->
+  <!--
+    Como as fórmulas foram escritas (tudo em HTML e CSS, sem biblioteca externa):
+      <span class="fracao"><span class="cima">...</span><span class="baixo">...</span></span>
+          -> fração de verdade: um número em cima, outro embaixo, traço no meio
+      <span class="raiz"><span class="dentro">...</span></span>
+          -> raiz quadrada com o traço por cima do que está dentro
+      <span class="vetor"><i>F</i></span>
+          -> setinha por cima da letra, indicando grandeza vetorial
+      <sup> e <sub>
+          -> potenciação (2 em cima) e índice (0 embaixo), como no caderno
+  -->
+  <section id="formulas" class="secao-cinza">
+    <div class="secao">
+      <p class="etiqueta">A MATEMÁTICA POR TRÁS</p>
+      <h2>As fórmulas principais</h2>
+      <p class="texto-lado">
+        Sei que fórmula assusta um pouco, então escrevi cada uma como a gente escreve no
+        caderno: fração com um número em cima e outro embaixo, raiz de verdade e setinha
+        nas grandezas que são vetores. <b>Toque em uma fórmula</b> (ou use Tab e Enter) para ver o que cada letra significa.
+      </p>
+
+      <h3 class="subtitulo">Eletrodinâmica (correntes e circuitos)</h3>
+
+      <details class="formula">
+        <summary>
+          <span class="formula-topo"><span>Lei de Coulomb</span><span class="mais" aria-hidden="true">+</span></span>
+          <span class="mat formula-corpo">
+          <i>F</i> = <i>k</i> ·
+          <span class="fracao">
+            <span class="cima"><i>q</i><sub>1</sub> · <i>q</i><sub>2</sub></span>
+            <span class="baixo"><i>r</i><sup>2</sup></span>
+          </span>
+        </span>
+        </summary>
+        <p class="formula-explica">
+          <i>F</i> = força entre as cargas (N) · <i>q</i><sub>1</sub> e <i>q</i><sub>2</sub> = cargas (C) ·
+          <i>r</i> = distância entre elas (m) · <i>k</i> = constante do meio (9 × 10<sup>9</sup> N·m²/C² no vácuo).
+          Repare no <i>r</i><sup>2</sup> embaixo: afastar um pouco já derruba muito a força.
+        </p>
+      </details>
+
+      <details class="formula">
+        <summary>
+          <span class="formula-topo"><span>1ª Lei de Ohm</span><span class="mais" aria-hidden="true">+</span></span>
+          <span class="mat formula-corpo"><i>V</i> = <i>R</i> · <i>I</i></span>
+        </summary>
+        <p class="formula-explica">
+          <i>V</i> = tensão (V) · <i>R</i> = resistência (Ω) · <i>I</i> = corrente (A).
+          Dá para isolar a corrente como <i>I</i> = <span class="fracao"><span class="cima"><i>V</i></span><span class="baixo"><i>R</i></span></span>: quanto maior a resistência,
+          menos carga consegue passar.
+        </p>
+      </details>
+
+      <details class="formula">
+        <summary>
+          <span class="formula-topo"><span>Efeito Joule</span><span class="mais" aria-hidden="true">+</span></span>
+          <span class="mat formula-corpo"><i>P</i> = <i>R</i> · <i>I</i><sup>2</sup></span>
+        </summary>
+        <p class="formula-explica">
+          <i>P</i> = potência que vira calor (W). O <i>I</i><sup>2</sup> diz que o efeito cresce
+          rápido: dobrar a corrente quadruplica o calor. É por isso que o carregador esquenta!
+        </p>
+      </details>
+
+      <details class="formula">
+        <summary>
+          <span class="formula-topo"><span>Força de Lorentz</span><span class="mais" aria-hidden="true">+</span></span>
+          <span class="mat formula-corpo">
+          <span class="vetor"><i>F</i></span> = <i>q</i> ( <span class="vetor"><i>E</i></span> +
+          <span class="vetor"><i>v</i></span> × <span class="vetor"><i>B</i></span> )
+        </span>
+        </summary>
+        <p class="formula-explica">
+          <i>q</i> = carga · <span class="vetor"><i>E</i></span> = campo elétrico ·
+          <span class="vetor"><i>B</i></span> = campo magnético · <span class="vetor"><i>v</i></span> = velocidade da carga.
+          A parte de <i>q</i><span class="vetor"><i>E</i></span> empurra a carga na direção do campo;
+          a parte <span class="vetor"><i>v</i></span> × <span class="vetor"><i>B</i></span> empurra de lado —
+          é essa que faz o motor girar.
+        </p>
+      </details>
+
+      <h3 class="subtitulo">As 4 equações de Maxwell</h3>
+
+      <details class="formula">
+        <summary>
+          <span class="formula-topo"><span>Gauss (eletricidade)</span><span class="mais" aria-hidden="true">+</span></span>
+          <span class="mat formula-corpo">
+          <span class="int">∮</span> <span class="vetor"><i>E</i></span> · d<i>A</i> =
+          <span class="fracao">
+            <span class="cima"><i>Q</i></span>
+            <span class="baixo"><i>ε</i><sub>0</sub></span>
+          </span>
+        </span>
+        </summary>
+        <p class="formula-explica">
+          As cargas elétricas são a "fonte" do campo elétrico: quantas linhas de campo saem
+          de uma superfície fechada depende só da carga <i>Q</i> que está lá dentro.
+          <i>ε</i><sub>0</sub> é a permissividade do vácuo.
+        </p>
+      </details>
+
+      <details class="formula">
+        <summary>
+          <span class="formula-topo"><span>Gauss (magnetismo)</span><span class="mais" aria-hidden="true">+</span></span>
+          <span class="mat formula-corpo">
+          <span class="int">∮</span> <span class="vetor"><i>B</i></span> · d<i>A</i> = 0
+        </span>
+        </summary>
+        <p class="formula-explica">
+          Não existe ímã com um polo só. Toda linha de campo magnético que entra numa
+          superfície tem que sair por outro lado: as linhas sempre se fecham em loops.
+        </p>
+      </details>
+
+      <details class="formula">
+        <summary>
+          <span class="formula-topo"><span>Indução de Faraday</span><span class="mais" aria-hidden="true">+</span></span>
+          <span class="mat formula-corpo">
+          ℰ = −
+          <span class="fracao">
+            <span class="cima">d<i>Φ</i><sub>B</sub></span>
+            <span class="baixo">d<i>t</i></span>
+          </span>
+        </span>
+        </summary>
+        <p class="formula-explica">
+          Quando o fluxo magnético <i>Φ</i><sub>B</sub> muda, aparece uma força eletromotriz
+          ℰ (e por isso uma corrente). O sinal de menos é a Lei de Lenz: a corrente criada
+          se opõe à mudança que a gerou. É o princípio do gerador e do transformador.
+        </p>
+      </details>
+
+      <details class="formula">
+        <summary>
+          <span class="formula-topo"><span>Ampère-Maxwell</span><span class="mais" aria-hidden="true">+</span></span>
+          <span class="mat formula-corpo">
+          <span class="int">∮</span> <span class="vetor"><i>B</i></span> · d<i>l</i> =
+          <i>μ</i><sub>0</sub><i>I</i> + <i>μ</i><sub>0</sub><i>ε</i><sub>0</sub>
+          <span class="fracao">
+            <span class="cima">d<i>Φ</i><sub>E</sub></span>
+            <span class="baixo">d<i>t</i></span>
+          </span>
+        </span>
+        </summary>
+        <p class="formula-explica">
+          Campo magnético nasce de corrente elétrica (<i>I</i>) ou de campo elétrico que varia
+          no tempo. Foi o segundo termo — a parte que Maxwell acrescentou — que permitiu
+          prever a existência das ondas eletromagnéticas.
+        </p>
+      </details>
+
+      <h3 class="subtitulo">Ondas eletromagnéticas</h3>
+
+      <details class="formula">
+        <summary>
+          <span class="formula-topo"><span>Velocidade da luz</span><span class="mais" aria-hidden="true">+</span></span>
+          <span class="mat formula-corpo">
+          <i>c</i> =
+          <span class="fracao">
+            <span class="cima">1</span>
+            <span class="baixo">
+              <span class="raiz">
+                <!-- o sinal de raiz é um desenho SVG que acompanha a altura do conteúdo -->
+                <svg class="sinal" viewBox="0 0 12 24" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M0 11 L3.5 11 L6 20 L9.5 2 L12 2" fill="none" stroke="currentColor"
+                        stroke-width="1.3" vector-effect="non-scaling-stroke"/>
+                </svg>
+                <span class="dentro"><i>μ</i><sub>0</sub> · <i>ε</i><sub>0</sub></span>
+              </span>
+            </span>
+          </span>
+        </span>
+        </summary>
+        <p class="formula-explica">
+          <i>ε</i><sub>0</sub> ≈ 8,85 × 10<sup>−12</sup> F/m · <i>μ</i><sub>0</sub> = 4π × 10<sup>−7</sup> T·m/A.
+          Fazendo a conta dá 3 × 10<sup>8</sup> m/s — a velocidade da luz. Foi assim que Maxwell
+          percebeu que a luz é uma onda eletromagnética.
+        </p>
+      </details>
+
+      <details class="formula">
+        <summary>
+          <span class="formula-topo"><span>Equação da onda</span><span class="mais" aria-hidden="true">+</span></span>
+          <span class="mat formula-corpo"><i>v</i> = <i>λ</i> · <i>f</i></span>
+        </summary>
+        <p class="formula-explica">
+          <i>λ</i> = comprimento de onda (m) · <i>f</i> = frequência (Hz). Como <i>v</i> é fixo
+          para a luz, onda curta significa frequência alta — e é por isso que o 5G, que usa
+          frequência alta, alcança uma distância menor que o Wi-Fi antigo.
+        </p>
+      </details>
+
+      <!-- Calculadora da Lei de Ohm (funciona com o script.js) -->
+      <div class="calculadora">
+        <p class="mini">Teste você mesmo</p>
+        <h3>Lei de Ohm na prática</h3>
+        <p class="mat calculadora-formula"><i>V</i> = <i>R</i> · <i>I</i> &nbsp;·&nbsp; <i>P</i> = <i>R</i> · <i>I</i><sup>2</sup></p>
+        <p class="legenda">Arraste os controles e veja a conta mudar.</p>
+
+        <label for="resistencia">Resistência (<i>R</i>): <b><span id="texto-r">10</span> Ω</b></label>
+        <input type="range" id="resistencia" min="1" max="100" value="10">
+
+        <label for="corrente">Corrente (<i>I</i>): <b><span id="texto-i">2</span> A</b></label>
+        <input type="range" id="corrente" min="1" max="20" value="2">
+
+        <!-- resultados: o leitor de tela anuncia quando mudam -->
+        <div class="resultados" aria-live="polite">
+          <p><span class="legenda">Tensão</span><span class="valor"><span id="valor-tensao">20</span> V</span></p>
+          <p><span class="legenda">Potência (calor)</span><span class="valor"><span id="valor-potencia">40</span> W</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CIENTISTAS ===================== -->
+  <section id="cientistas" class="secao-escura">
+    <div class="secao">
+      <p class="etiqueta verde">QUEM FEZ ACONTECER</p>
+      <h2>Os cientistas por trás disso</h2>
+      <p>Uma coisa legal que eu descobri: várias unidades de medida que usamos levam o nome deles.</p>
+
+      <!-- Os itens da lista são criados pelo script.js a partir de uma lista -->
+      <ul id="lista-cientistas" class="lista-cientistas"></ul>
+    </div>
+  </section>
+
+  </main>
+
+  <footer class="rodape">
+    <span>© 2026 Física IFBA Campus Camaçari</span>
+    <span>Site desenvolvido por Bruno Barreto com auxílio de IA</span>
+    <a href="#inicio">Voltar ao início ↑</a>
+  </footer>
+
+  <script src="/site/script.js"></script>
+</body>
+</html>
